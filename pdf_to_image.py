@@ -31,6 +31,5 @@ def select_pdf_and_directory():
         print("Please select both a PDF file and an output directory.")
 
 
-
 if __name__ == "__main__":
   select_pdf_and_directory()
