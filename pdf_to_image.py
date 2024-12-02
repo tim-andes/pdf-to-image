@@ -1,6 +1,8 @@
 from PIL import Image
 import pdf2image
 import os
+import tkinter as tk
+from tkinter import filedialog
 
 def convert_pdf_to_images(pdf_file, output_dir):
     # Convert PDF to images
@@ -11,11 +13,12 @@ def convert_pdf_to_images(pdf_file, output_dir):
         output_file_name = f"page_{i+1}.jpg"
         page.save(output_dir + '/' + output_file_name)
 
-# Usage
-pdf_file = "C:\\Users\\Tim\\Documents\\code\\pdf-to-image\\DOC_0000015418.pdf"
-output_dir = "C:\\Users\\Tim\\Documents\\code\\pdf-to-image"
+def select_pdf():
+    pdf_file_path = filedialog.askopenfilename(filetypes=[('PDF Files', '*.pdf')])
+    output_dir = os.getcwd()
+    # Or, pass it to your PDF processing function:
+    convert_pdf_to_images(pdf_file_path, output_dir)
 
-convert_pdf_to_images(pdf_file, output_dir)
 
 if __name__ == "__main__":
-    convert_pdf_to_images(pdf_file, output_dir)
+    select_pdf()
